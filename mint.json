@@ -1,51 +1,48 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
+  "name": "Spellbound",
+  "logo": "logo.png",
+  "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+    "primary": "#c935a9",
+    "light": "#DC59BF",
+    "dark": "#724782",
+    "background": {
+      "dark": "#000000"
     }
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+  "topbarCtaButton": {
+    "name": "Login",
+    "url": "https://spellbound.us.auth0.com/u/login?state=hKFo2SBESFlQWUlYeDRKbmxBQ2tlTmRhRnN0UmJ5TURaQTdaSaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIERSUFV1ZWRjUmFaOXpGdzJWUHJvRkkzS1FyemV5UlMwo2NpZNkgZ2kzUUN3NnBNY3pXczFEdHJwQVJiR092YkJYSzhEdjc"
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
+      "name": "Smart Surveys",
+      "url": "https://www.spellbound.io/smart-surveys"
+    },
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Product Quizzes",
+      "url": "https://www.spellbound.io/quizzes"
+    },
+    {
+      "name": "Examples",
+      "url": "https://www.spellbound.io/examples"
     }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://www.spellbound.io/blog-main"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "navigation": [
@@ -64,8 +61,7 @@
         "essentials/code",
         "essentials/images",
         "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/navigation"
       ]
     },
     {
@@ -84,8 +80,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+    "twitter": "https://twitter.com/spellboundio?lang=en",
+    "linkedin": "https://www.linkedin.com/company/spellboundio/"
+  },
+  "backgroundImage": "/images/background.png"
 }
