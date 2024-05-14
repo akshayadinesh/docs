@@ -1,0 +1,23 @@
+---
+title: "Domain Setup"
+description: "Connect your own custom domain to Spellbound."
+---
+
+### 1. Go to Settings
+
+Navigate to the [Settings](https://app.spellbound.io/dashboard/settings) tab in Spellbound and click "Add Sending Domain" to create a new sending domain.
+
+### 2. Copy the DNS records into your DNS provider.
+
+Make sure you don't include your domain twice when you add the CNAME records. Some DNS providers will automatically remove the domain, and some need you to include it.
+
+<Frame>
+  <img
+    src="/images/dns-records.png"
+    style={{ borderRadius: "0.5rem", width: "75%" }}
+  />
+</Frame>
+
+### 3. Verify the records have applied.
+
+Click "Check Status" to see if your records have propagated. It may take up a few minutes to apply, so be patient. If you're still not seeing all green check marks after a few hours, you may have a mistake with your DNS records and feel free to reach out to help@spellbound.io and we'd be happy to help you debug.

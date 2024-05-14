@@ -1,33 +1,36 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Getting started with the API"
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  Before you can use the Spellbound API to send emails, you'll need to follow
+  our steps for setting up a custom domain and grab your API Key from the
+  Settings tab.
 </Note>
 
-## Welcome
+## Base URL
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+The base URL for the Spellbound API is simply https://api.spellbound.io. We're currently on v1, so a sample API endpoint would be https://api.spellbound.io/api/v1/emails/send.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+## Headers
+
+All API calls need two headers: Content-Type and Authorization.
+
+```
+{
+    "Content-Type": "application/json",
+    "Authorization": "Bearer YOURAPIKEY"
+  }
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+To grab your API key, first make sure you've followed the instructions [here](https://spellbound.io/docs/domain-setup) to add a valid custom domain to Spellbound. Once you have, you can go to the [Settings](https://app.spellbound.io/dashboard/settings) page to grab your API Key.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+<Frame>
+  <img
+    src="/images/apikey.png"
+    style={{ borderRadius: "0.5rem", width: "75%" }}
+  />
+</Frame>

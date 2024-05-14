@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "Spellbound API",
+    "description": "Spellbound's API for sending interactive emails.",
     "license": {
       "name": "MIT"
     },
@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://app.spellbound.io/api/v1"
     }
   ],
   "security": [
@@ -19,54 +19,15 @@
     }
   ],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/emails/send": {
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Sends a Spellbound email template to a recipient.",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Email to send",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/Email"
               }
             }
           },
@@ -74,50 +35,17 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Success!",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Success"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
+            "description": "Unexpected error occurred",
             "content": {
               "application/json": {
                 "schema": {
@@ -132,47 +60,79 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
+      "Email": {
+        "required": ["templateId", "to"],
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
+          "templateId": {
+            "description": "The Spellbound email ID, which can be found in the URL of the selected email in the designer or in the code snippet on the Test & Deploy page.",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "to": {
+            "description": "Recipient of the email. Required.",
+            "$ref": "#/components/schemas/Person"
+          },
+          "from": {
+            "description": "Overrides the Sender details set in Test & Deploy.",
+            "$ref": "#/components/schemas/Person"
+          },
+          "replyTo": {
+            "description": "If you need the reply-to email to be different from the from email.",
+            "$ref": "#/components/schemas/Person"
+          },
+          "subject": {
+            "description": "Overrides the subject line specified in Test & Deploy.",
+            "type": "string"
+          },
+          "templateData": {
+            "description": "Custom data to be injected into the email template (JSON).",
+            "type": "object"
+          },
+          "sendAt": {
+            "description": "UNIX timestamp to schedule the email in the future instead of sending now.",
+            "type": "number"
+          },
+          "html": {
+            "description": "Overrides the HTML mimetype of the email template.",
+            "type": "string"
+          },
+          "amp": {
+            "description": "Overrides the AMP mimetype of the email template.",
+            "type": "string"
+          },
+          "text": {
+            "description": "Overrides the TXT mimetype of the email template.",
             "type": "string"
           }
         }
       },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
+      "Person": {
+        "required": ["email"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
           },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+          "name": {
+            "type": "string"
           }
-        ]
+        }
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Success": {
+        "required": ["message"],
         "type": "object",
         "properties": {
           "error": {

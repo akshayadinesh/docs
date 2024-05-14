@@ -20,14 +20,6 @@
   },
   "topbarLinks": [
     {
-      "name": "Smart Surveys",
-      "url": "https://www.spellbound.io/smart-surveys"
-    },
-    {
-      "name": "Product Quizzes",
-      "url": "https://www.spellbound.io/quizzes"
-    },
-    {
       "name": "Examples",
       "url": "https://www.spellbound.io/examples"
     }
@@ -48,35 +40,15 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation"
-      ]
+      "pages": ["introduction", "domain-setup", "send-emails"]
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/introduction"]
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "All Endpoints",
+      "pages": ["api-reference/endpoint/send"]
     }
   ],
   "footerSocials": {
