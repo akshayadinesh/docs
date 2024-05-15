@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://app.spellbound.io/api/v1"
+      "url": "https://app.spellbound.io/v1"
     }
   ],
   "security": [
