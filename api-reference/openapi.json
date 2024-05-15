@@ -34,15 +34,8 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "Success!",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success"
-                }
-              }
-            }
+          "202": {
+            "description": "Success!"
           },
           "400": {
             "description": "Unexpected error occurred",
@@ -119,17 +112,7 @@
         }
       },
       "Error": {
-        "required": ["error", "message"],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
+        "type": "string"
       },
       "Success": {
         "required": ["message"],
