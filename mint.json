@@ -40,7 +40,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "domain-setup", "send-emails"]
+      "pages": ["introduction", "domain-setup", "send-emails", "upload-csv"]
     },
     {
       "group": "API Documentation",

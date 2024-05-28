@@ -1,0 +1,19 @@
+---
+title: "Send via CSV Upload"
+description: "Quickly send an email to a list using CSV Upload."
+---
+
+If you already know who you want to send your email to for a one-time send, you can use our CSV Upload feature instead of the API to save time and get your email sent out quickly.
+
+### How to format your CSV headers
+
+Your spreadsheet should have columns for email address as well as any dynamic variables you'd like to use in your email. The first column must be titled "Email" and the rest of your column names should match up with the Liquid variables you used in your email design. Here's an example of what that could look like:
+
+<Frame>
+  <img
+    src="/images/csv-example.png"
+    style={{ borderRadius: "0.5rem", width: "75%" }}
+  />
+</Frame>
+
+Then, you can save your spreadsheet as a .csv file and upload it to the "CSV" option in the Test & Deploy step!

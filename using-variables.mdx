@@ -1,0 +1,38 @@
+---
+title: "Use Variables to Personalize Emails"
+description: "Personalize your emails with Liquid templating."
+---
+
+### Adding variables to your email
+
+Our no-code email designer supports using Liquid syntax to personalize emails anywhere in your email. Try inserting a variable in a Text element, or as an image source URL, etc. Here's an example:
+
+```
+Hello {{ firstName }}!
+```
+
+### Testing with mock data
+
+Once you've added all your variables to your email, you can test out the email before sending it to your audience. On the Test & Deploy step, you'll be able to add in mock values for these variables to test out how the email looks with them filled in. If you want to test out lists of data, you can use custom JSON to add your test data instead.
+
+<Frame>
+  <img
+    src="/images/variables-test.png"
+    style={{ borderRadius: "0.5rem", width: "75%" }}
+  />
+</Frame>
+
+### Adding conditional or repeated content
+
+If you want parts of your email to only be shown to certain recipients, you can use our special _Section_ element to show/hide all of its contents based on your Liquid templating.
+
+<Frame>
+  <img
+    src="/images/dns-records.png"
+    style={{ borderRadius: "0.5rem", width: "75%" }}
+  />
+</Frame>
+
+### 3. Verify the records have applied.
+
+Click "Check Status" to see if your records have propagated. It may take up a few minutes to apply, so be patient. If you're still not seeing all green check marks after a few hours, you may have a mistake with your DNS records and feel free to reach out to help@spellbound.io and we'd be happy to help you debug.
